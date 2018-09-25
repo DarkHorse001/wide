@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.gt.wide.base.annotation.RequestMapping;
-import com.gt.wide.dao.InformationDao;
-import com.gt.wide.dao.UserDao;
 import com.gt.wide.entity.Information;
 import com.gt.wide.entity.User;
+import com.gt.wide.mapper.InformationDao;
+import com.gt.wide.mapper.UserDao;
 /**
  * 个人信息类，查询和修改个人信息
  * @author 陈广坤

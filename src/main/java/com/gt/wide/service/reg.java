@@ -8,8 +8,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import com.gt.wide.base.annotation.RequestMapping;
-import com.gt.wide.dao.UserDao;
 import com.gt.wide.entity.User;
+import com.gt.wide.mapper.UserDao;
 
 
 /**

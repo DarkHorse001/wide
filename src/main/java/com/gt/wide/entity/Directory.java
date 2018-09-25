@@ -1,42 +1,110 @@
 package com.gt.wide.entity;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
-public class Directory {
-	private int directory_id;
-	private int pid;
-	private String dname;
-	private String ddescription;
-	private Date create_time;
-	private Date last_update_time;
-	private int last_update_person;
+public class Directory implements Serializable {
+
+	private static final long serialVersionUID = -3587251608745510163L;
+	
+	private Integer directoryId; //目录id
+	private Integer pid;  //父级目录id
+	private String dname; //目录名称
+	private String ddescription;//目录描述
+	private Date createTime; //建立时间
+	private Date updateTime; //修改时间
+	private String updatePerson; //修改人员姓名
 	
 	public Directory() {
 		super();
 	}
-	public Directory(int directory_id, int pid, String dname, String ddescription, Date create_time, Date last_update_time,
-			int last_update_person) {
+	public Directory(Integer directoryId, Integer pid, String dname, String ddescription, Date createTime,
+			Date updateTime, String updatePerson) {
 		super();
-		this.directory_id = directory_id;
-		this.pid = pid;
-		this.dname = dname;
-		this.ddescription = ddescription;
-		this.create_time = create_time;
-		this.last_update_time = last_update_time;
-		this.last_update_person = last_update_person;
+		setDirectoryId(directoryId);
+		setPid(pid);
+		setDname(dname);
+		setDdescription(ddescription);
+		setCreateTime(createTime);
+		setUpdateTime(updateTime);
 	}
-	public int getDirectory_id() {
-		return directory_id;
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((createTime == null) ? 0 : createTime.hashCode());
+		result = prime * result + ((ddescription == null) ? 0 : ddescription.hashCode());
+		result = prime * result + ((directoryId == null) ? 0 : directoryId.hashCode());
+		result = prime * result + ((dname == null) ? 0 : dname.hashCode());
+		result = prime * result + ((pid == null) ? 0 : pid.hashCode());
+		result = prime * result + ((updatePerson == null) ? 0 : updatePerson.hashCode());
+		result = prime * result + ((updateTime == null) ? 0 : updateTime.hashCode());
+		return result;
 	}
-	public void setDirectory_id(int directory_id) {
-		this.directory_id = directory_id;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Directory other = (Directory) obj;
+		if (createTime == null) {
+			if (other.createTime != null)
+				return false;
+		} else if (!createTime.equals(other.createTime))
+			return false;
+		if (ddescription == null) {
+			if (other.ddescription != null)
+				return false;
+		} else if (!ddescription.equals(other.ddescription))
+			return false;
+		if (directoryId == null) {
+			if (other.directoryId != null)
+				return false;
+		} else if (!directoryId.equals(other.directoryId))
+			return false;
+		if (dname == null) {
+			if (other.dname != null)
+				return false;
+		} else if (!dname.equals(other.dname))
+			return false;
+		if (pid == null) {
+			if (other.pid != null)
+				return false;
+		} else if (!pid.equals(other.pid))
+			return false;
+		if (updatePerson == null) {
+			if (other.updatePerson != null)
+				return false;
+		} else if (!updatePerson.equals(other.updatePerson))
+			return false;
+		if (updateTime == null) {
+			if (other.updateTime != null)
+				return false;
+		} else if (!updateTime.equals(other.updateTime))
+			return false;
+		return true;
 	}
-	public int getPid() {
+	@Override
+	public String toString() {
+		return "Directory [directoryId=" + directoryId + ", pid=" + pid + ", dname=" + dname + ", ddescription="
+				+ ddescription + ", createTime=" + createTime + ", updateTime=" + updateTime + ", updatePerson="
+				+ updatePerson + "]";
+	}
+	public Integer getDirectoryId() {
+		return directoryId;
+	}
+	public void setDirectoryId(Integer directoryId) {
+		this.directoryId = directoryId;
+	}
+	public Integer getPid() {
 		return pid;
 	}
-	public void setPid(int pid) {
+	public void setPid(Integer pid) {
 		this.pid = pid;
 	}
 	public String getDname() {
@@ -51,31 +119,23 @@ public class Directory {
 	public void setDdescription(String ddescription) {
 		this.ddescription = ddescription;
 	}
-	public Date getCreate_time() {
-		return create_time;
+	public Date getCreateTime() {
+		return createTime;
 	}
-	public void setCreate_time(Date create_time) {
-		this.create_time = create_time;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
-	public Date getLast_update_time() {
-		return last_update_time;
+	public Date getUpdateTime() {
+		return updateTime;
 	}
-	public void setLast_update_time(Date last_update_time) {
-		this.last_update_time = last_update_time;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
-	public int getLast_update_person() {
-		return last_update_person;
+	public String getUpdatePerson() {
+		return updatePerson;
 	}
-	public void setLast_update_person(int last_update_person) {
-		this.last_update_person = last_update_person;
+	public void setUpdatePerson(String updatePerson) {
+		this.updatePerson = updatePerson;
 	}
-	@Override
-	public String toString() {
-		return "Directory [directory_id=" + directory_id 
-				+ ", pid=" + pid + ", dname=" + dname + ", ddescription="
-				+ ddescription + ", create_time=" + create_time 
-				+ ", last_update_time=" + last_update_time
-				+ ", last_update_person=" + last_update_person + "]";
-	}
-	
+
 }

@@ -1,6 +1,11 @@
 package com.gt.wide.entity;
 
-public class Information {
+import java.io.Serializable;
+
+public class Information  implements Serializable{
+	
+	private static final long serialVersionUID = 6535891267365484847L;
+	
 	private int id;
 	private int userId;
 	private String nickName;

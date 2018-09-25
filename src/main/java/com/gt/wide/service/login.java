@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.gt.wide.base.annotation.RequestMapping;
-import com.gt.wide.dao.UserDao;
 import com.gt.wide.entity.User;
+import com.gt.wide.mapper.UserDao;
 
 /**
  * 登录业务：处理用户登录业务逻辑

@@ -1,81 +1,152 @@
 package com.gt.wide.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Kind {
-	private int kind_id;
-	private int directory_id;
-	private String kind_name;
-	private String kind_describe;
-	private Date create_time;
-	private Date last_update_time;
-	private int last_update_person;
-	public Kind() {
+/**
+ * 种类信息
+ * @author qin
+ *
+ */
+public class Kind implements Serializable{
+	
+	private static final long serialVersionUID = -4711970529084994644L;
+
+	private Integer kindId; //种类id
+	private Integer directoryId; //目录id
+	private String kindName; //种类名称
+	private String kindDescribe; //种类描述
+	private Date createTime; //建立时间
+	private Date updateTime; //修改时间
+	private String updatePerson; //修改人员姓名
+	
+	
+	public Kind(Integer kindId, Integer directoryId, String kindName, String kindDescribe, Date createTime,
+			Date updateTime, String updatePerson) {
 		super();
+		setKindId(kindId);
+		setDirectoryId(directoryId);
+		setKindName(kindName);
+		setKindDescribe(kindDescribe);
+		setCreateTime(createTime);
+		setUpdateTime(updateTime);
+		setUpdatePerson(updatePerson);
 	}
-	public Kind(int kind_id, int directory_id, String kind_name, String kind_describe, Date create_time,
-			Date last_update_time, int last_update_person) {
-		super();
-		this.kind_id = kind_id;
-		this.directory_id = directory_id;
-		this.kind_name = kind_name;
-		this.kind_describe = kind_describe;
-		this.create_time = create_time;
-		this.last_update_time = last_update_time;
-		this.last_update_person = last_update_person;
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((createTime == null) ? 0 : createTime.hashCode());
+		result = prime * result + ((directoryId == null) ? 0 : directoryId.hashCode());
+		result = prime * result + ((kindDescribe == null) ? 0 : kindDescribe.hashCode());
+		result = prime * result + ((kindId == null) ? 0 : kindId.hashCode());
+		result = prime * result + ((kindName == null) ? 0 : kindName.hashCode());
+		result = prime * result + ((updatePerson == null) ? 0 : updatePerson.hashCode());
+		result = prime * result + ((updateTime == null) ? 0 : updateTime.hashCode());
+		return result;
 	}
-	public int getKind_id() {
-		return kind_id;
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Kind other = (Kind) obj;
+		if (createTime == null) {
+			if (other.createTime != null)
+				return false;
+		} else if (!createTime.equals(other.createTime))
+			return false;
+		if (directoryId == null) {
+			if (other.directoryId != null)
+				return false;
+		} else if (!directoryId.equals(other.directoryId))
+			return false;
+		if (kindDescribe == null) {
+			if (other.kindDescribe != null)
+				return false;
+		} else if (!kindDescribe.equals(other.kindDescribe))
+			return false;
+		if (kindId == null) {
+			if (other.kindId != null)
+				return false;
+		} else if (!kindId.equals(other.kindId))
+			return false;
+		if (kindName == null) {
+			if (other.kindName != null)
+				return false;
+		} else if (!kindName.equals(other.kindName))
+			return false;
+		if (updatePerson == null) {
+			if (other.updatePerson != null)
+				return false;
+		} else if (!updatePerson.equals(other.updatePerson))
+			return false;
+		if (updateTime == null) {
+			if (other.updateTime != null)
+				return false;
+		} else if (!updateTime.equals(other.updateTime))
+			return false;
+		return true;
 	}
-	public void setKind_id(int kind_id) {
-		this.kind_id = kind_id;
-	}
-	public int getDirectory_id() {
-		return directory_id;
-	}
-	public void setDirectory_id(int directory_id) {
-		this.directory_id = directory_id;
-	}
-	public String getKind_name() {
-		return kind_name;
-	}
-	public void setKind_name(String kind_name) {
-		this.kind_name = kind_name;
-	}
-	public String getKind_describe() {
-		return kind_describe;
-	}
-	public void setKind_describe(String kind_describe) {
-		this.kind_describe = kind_describe;
-	}
-	public Date getCreate_time() {
-		return create_time;
-	}
-	public void setCreate_time(Date create_time) {
-		this.create_time = create_time;
-	}
-	public Date getLast_update_time() {
-		return last_update_time;
-	}
-	public void setLast_update_time(Date last_update_time) {
-		this.last_update_time = last_update_time;
-	}
-	public int getLast_update_person() {
-		return last_update_person;
-	}
-	public void setLast_update_person(int last_update_person) {
-		this.last_update_person = last_update_person;
-	}
+
+	
+	
 	@Override
 	public String toString() {
-		return "Kind [kind_id=" + kind_id + ", directory_id=" 
-				+ directory_id + ", kind_name=" + kind_name
-				+ ", kind_describe=" + kind_describe 
-				+ ", create_time=" + create_time + ", last_update_time="
-				+ last_update_time + ", last_update_person=" 
-				+ last_update_person + "]";
+		return "Kind [kindId=" + kindId + ", directoryId=" + directoryId + ", kindName=" + kindName + ", kindDescribe="
+				+ kindDescribe + ", createTime=" + createTime + ", updateTime=" + updateTime + ", updatePerson="
+				+ updatePerson + "]";
+	}
+
+
+	public Integer getKindId() {
+		return kindId;
+	}
+	public void setKindId(Integer kindId) {
+		this.kindId = kindId;
+	}
+	public Integer getDirectoryId() {
+		return directoryId;
+	}
+	public void setDirectoryId(Integer directoryId) {
+		this.directoryId = directoryId;
+	}
+	public String getKindName() {
+		return kindName;
+	}
+	public void setKindName(String kindName) {
+		this.kindName = kindName;
+	}
+	public String getKindDescribe() {
+		return kindDescribe;
+	}
+	public void setKindDescribe(String kindDescribe) {
+		this.kindDescribe = kindDescribe;
+	}
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+	public String getUpdatePerson() {
+		return updatePerson;
+	}
+	public void setUpdatePerson(String updatePerson) {
+		this.updatePerson = updatePerson;
 	}
 	
-	
-
 }
