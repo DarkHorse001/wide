@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.gt.wide.entity.Brand;
-import com.gt.wide.entity.Directory;
-import com.gt.wide.entity.Kind;
+import com.gt.wide.bean.Brand;
+import com.gt.wide.bean.Directory;
+import com.gt.wide.bean.Kind;
 import com.gt.wide.util.DBUtil;
 
 

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * ´¦ÀíÓëµØÖ·ÓĞ¹ØµÄÇëÇó
+ * å¤„ç†ä¸åœ°å€æœ‰å…³çš„è¯·æ±‚
  * @author qin
  *
  */

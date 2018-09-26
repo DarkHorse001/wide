@@ -8,20 +8,20 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import com.gt.wide.base.annotation.RequestMapping;
-import com.gt.wide.entity.User;
+import com.gt.wide.bean.User;
 import com.gt.wide.mapper.UserDao;
 
 
 /**
- * ×¢²áÒµÎñ£ºÓÃÓÚ´¦ÀíÓÃ»§×¢²áÒµÎñ
+ * ×¢ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ã»ï¿½×¢ï¿½ï¿½Òµï¿½ï¿½
  * 
- * @author ³Â¹ãÀ¤
+ * @author ï¿½Â¹ï¿½ï¿½ï¿½
  *
  */
 
 public class reg {
 	/**
-	 * µ½×¢²áÒ³Ãæ
+	 * ï¿½ï¿½×¢ï¿½ï¿½Ò³ï¿½ï¿½
 	 * 
 	 * @return
 	 */
@@ -31,64 +31,64 @@ public class reg {
 	}
 
 	/**
-	 * ´¦ÀíÓÃ»§Ìá½»µÄ×¢²áÐÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½á½»ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * 
 	 * @return
 	 * @throws SQLException
 	 */
 	@RequestMapping("/reg.do")
 	public String UserReg(HttpServletRequest request) throws SQLException {
-		System.out.println("reg.do·½·¨...");
+		System.out.println("reg.doï¿½ï¿½ï¿½ï¿½...");
 		UserDao dao = new UserDao();
-		// ²éÑ¯Êý¾Ý¿â£¬»ñÈ¡ËùÓÐÓÃ»§
+		// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ý¿â£¬ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 		List<User> users = dao.findAllUsers();
 		int id=users.size()+1;
-		// Ä¬ÈÏÓÃ»§Ãû
+		// Ä¬ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
 		String name = "user" + id;
-		// »ñÈ¡ÓÃ»§Ìá½»ÃÜÂë
+		// ï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½á½»ï¿½ï¿½ï¿½ï¿½
 		String password = request.getParameter("password");
-		// »ñÈ¡ÓÃ»§Ìá½»µÄÈ·ÈÏÃÜÂë
+		// ï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½á½»ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String passwordConfirm = request.getParameter("passwordRepeat");
-		//»ñÈ¡ÓÃ»§Ìá½»µÄÊÖ»úºÅÂë
+		//ï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½á½»ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½
 		String telephone = request.getParameter("phone");
-		//»ñÈ¡ÓÃ»§Ìá½»µÄÑéÖ¤Âë
+		//ï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½á½»ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
 		String code=request.getParameter("code");
 		boolean delFlag = false;
-		// »ñÈ¡ÏµÍ³µ±Ç°Ê±¼ä£¬ÒÔ¹Ì¶¨¸ñÊ½£¬×÷Îª´´½¨Ê±¼äcreateTimeºÍÐÞ¸ÄÊ±¼ä
+		// ï¿½ï¿½È¡ÏµÍ³ï¿½ï¿½Ç°Ê±ï¿½ä£¬ï¿½Ô¹Ì¶ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½createTimeï¿½ï¿½ï¿½Þ¸ï¿½Ê±ï¿½ï¿½
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String createTime = sdf.format(date);
 		String lastUpdate = createTime;
-		//³õ´ÎÐÞ¸ÄÈËÔ±Îª×¢²áÓÃ»§
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½Ô±Îª×¢ï¿½ï¿½ï¿½Ã»ï¿½
 		String lastUpdater = name;
-		//Ìá½»Êý¾Ý¶¼²»ÄÜÎª¿Õ
+		//ï¿½á½»ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
 		boolean empty="".equals(telephone)||"".equals(password)
 				||"".equals(passwordConfirm)||"".equals(code);
 		
 		if(empty){
-			//Ìá½»Êý¾Ý²»ÄÜÎª¿Õ
-			request.setAttribute("reg_fail_haveEmpt", "Ìá½»ÐÅÏ¢²»ÄÜÎª¿Õ");
+			//ï¿½á½»ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½Îªï¿½ï¿½
+			request.setAttribute("reg_fail_haveEmpt", "ï¿½á½»ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½");
 			return "person/reg";
 		}
 		
 		if (!password.equals(passwordConfirm)) {
-			// Á½´ÎÃÜÂë²»Ò»ÖÂ£¬×ª·¢£¬ÖØÐÂ×¢²á
-			request.setAttribute("reg_fail_pwd", "Á½´ÎÃÜÂë²»Ò»ÖÂ");
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²»Ò»ï¿½Â£ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½
+			request.setAttribute("reg_fail_pwd", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²»Ò»ï¿½ï¿½");
 			return "person/reg";
 		}
 		
-		//¼ì²éÑéÖ¤Âë
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
 		if(!"1234".equals(code)){
-			// ÑéÖ¤Âë²»ÕýÈ·£¬×ª·¢£¬ÖØÐÂ×¢²á
-			request.setAttribute("reg_fail_code", "ÑéÖ¤Âë´íÎó");
+			// ï¿½ï¿½Ö¤ï¿½ë²»ï¿½ï¿½È·ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½
+			request.setAttribute("reg_fail_code", "ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½");
 			return "person/reg";
 		}
 		
 		for (User u : users) {
-			// ¸ù¾ÝÊý¾Ý¿â²éÑ¯³öµÄÓÃ»§£¬±éÀú£¬¶Ô±È¸ÃÊÖ»úºÅÂëÊÇ·ñÒÑ¾­×¢²á
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±È¸ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½×¢ï¿½ï¿½
 			String  phone = u.getTelephone();
 			if (phone.equals(telephone)) {
-				request.setAttribute("reg_fail_phone", "¸ÃºÅÂëÒÑ¾­×¢²á¹ý");
+				request.setAttribute("reg_fail_phone", "ï¿½Ãºï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½×¢ï¿½ï¿½ï¿½");
 				return "person/reg";
 			}
 		}
@@ -103,7 +103,7 @@ public class reg {
 		user.setTelephone(telephone);
 		dao.addUser(user);
 		dao.addUserInfo(user);
-		System.out.println("×¢²á³É¹¦");
+		System.out.println("×¢ï¿½ï¿½É¹ï¿½");
 		return "redirect:reg_success.do";
 	}
 	

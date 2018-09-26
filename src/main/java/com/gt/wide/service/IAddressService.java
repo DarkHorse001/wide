@@ -1,6 +1,6 @@
 package com.gt.wide.service;
 /**
- * ´¦ÀíÓëµØÖ·ÓĞ¹ØµÄ·şÎñ
+ * å¤„ç†ç”¨æˆ·åœ°å€çš„æœåŠ¡
  * @author qin
  *
  */

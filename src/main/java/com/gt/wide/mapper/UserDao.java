@@ -7,18 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.gt.wide.entity.User;
+import com.gt.wide.bean.User;
 import com.gt.wide.util.DBUtil;
 
 
 public class UserDao {
-	//·â×°²åÈëÊý¾Ý
+	//ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		/**
-		 * Ìí¼ÓÓÃ»§µ½Êý¾Ý¿â,¼´×¢²á
+		 * ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½,ï¿½ï¿½×¢ï¿½ï¿½
 		 * @param user
 		 */
 		public void addUser(User user) {
-			System.out.println("addUser·½·¨...");
+			System.out.println("addUserï¿½ï¿½ï¿½ï¿½...");
 			Connection conn = null;
 			PreparedStatement stat = null;
 			ResultSet rs=null;
@@ -43,9 +43,9 @@ public class UserDao {
 				stat.setString(6,  lastUpdate);
 				stat.setString(7, lastUpdater);
 				stat.setString(8, telephone);
-				System.out.println("×¼±¸Ìí¼ÓÊý¾Ý...");
+				System.out.println("×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...");
 				stat.executeUpdate();
-				System.out.println("Ìí¼ÓÊý¾Ý³É¹¦");
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³É¹ï¿½");
 				
 				
 				
@@ -58,7 +58,7 @@ public class UserDao {
 		}
 		
 		public void addUserInfo(User user) {
-			System.out.println("addUserInfo·½·¨...");
+			System.out.println("addUserInfoï¿½ï¿½ï¿½ï¿½...");
 			System.out.println(user);
 			Connection conn = null;
 			PreparedStatement stat = null;
@@ -81,9 +81,9 @@ public class UserDao {
 				stat.setString(7, lastUpdate);//last_update_time
 				stat.setString(8, lastUpdater);//last_update_person
 				
-				System.out.println("×¼±¸Ìí¼ÓÊý¾Ý2...");
+				System.out.println("×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2...");
 				stat.executeUpdate();
-				System.out.println("Ìí¼ÓÊý¾Ý³É¹¦2");
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³É¹ï¿½2");
 				
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
@@ -94,9 +94,9 @@ public class UserDao {
 		}
 		
 		/**
-		 * ÐÞ¸ÄÓÃ»§Ãû
-		 * @param uid ¶ÔÓ¦ÒÑµÇÂ¼id
-		 * @param name ÐÂÐÞ¸ÄÓÃ»§Ãû
+		 * ï¿½Þ¸ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
+		 * @param uid ï¿½ï¿½Ó¦ï¿½Ñµï¿½Â¼id
+		 * @param name ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
 		 */
 		public void updateUserName(int uid,String name ) {
 			Connection conn=null;
@@ -109,7 +109,7 @@ public class UserDao {
 				stat.setString(1, name);
 				stat.setInt(2,uid);
 				stat.executeUpdate();
-				System.out.println("¸üÐÂÍê³É");
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 				
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -120,7 +120,7 @@ public class UserDao {
 		
 		
 		/**
-		 * ½«ËùÓÐÓÃ»§ÐÅÏ¢´ÓÊý¾Ý¿âÖÐ²éÑ¯³öÀ´
+		 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ð²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 		 * @return
 		 * @throws SQLException 
 		 */
@@ -162,7 +162,7 @@ public class UserDao {
 			} catch (SQLException e) {
 				// 
 				
-				//½«Òì³£Å×³ö£¬½»µ÷ÓÃÕß´¦Àí
+				//ï¿½ï¿½ï¿½ì³£ï¿½×³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½
 				throw new RuntimeException(e);
 			}finally {
 				DBUtil.close(conn, stat, rs);
@@ -171,7 +171,7 @@ public class UserDao {
 		}
 		
 		/**
-		 * Í¨¹ýÓÃ»§Ãû²éÕÒÓÃ»§
+		 * Í¨ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 		 * @param name
 		 * @return
 		 * @throws SQLException
@@ -212,7 +212,7 @@ public class UserDao {
 			} catch (SQLException e) {
 				// 
 				
-				//½«Òì³£Å×³ö£¬½»µ÷ÓÃÕß´¦Àí
+				//ï¿½ï¿½ï¿½ì³£ï¿½×³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½
 				throw new RuntimeException(e);
 			}finally {
 				DBUtil.close(conn, stat, rs);

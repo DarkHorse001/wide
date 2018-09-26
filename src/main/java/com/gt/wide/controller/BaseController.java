@@ -1,7 +1,7 @@
 package com.gt.wide.controller;
 
 /**
- * 处理保存用户信息
+ * 澶勭悊淇濆瓨鐢ㄦ埛session
  * @author qin
  *
  */

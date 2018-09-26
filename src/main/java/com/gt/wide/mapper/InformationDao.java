@@ -7,20 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.gt.wide.base.annotation.RequestMapping;
-import com.gt.wide.entity.Information;
+import com.gt.wide.bean.Information;
 import com.gt.wide.util.DBUtil;
 
 public class InformationDao {
-	//²éÑ¯¸öÈËÐÅÏ¢
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	/**
 	 * select user_id,nickname,gender,birthday,email,create_time,last_update_time,
 	 * last_update_person from wide_user_info where user_id=1;
-	 * ¸ù¾ÝÓÃ»§id£¬user_id²éÑ¯ÓÃ»§ÐÅÏ¢±íÐÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½idï¿½ï¿½user_idï¿½ï¿½Ñ¯ï¿½Ã»ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * @param userId
-	 * @return Èç¹ûÓÐÔò·µ»ØInformation¶ÔÏó£¬Ã»ÓÐÔònull
+	 * @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½Informationï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½null
 	 */
 	public Information selectInformation(int userId) {
-		System.out.println("seletInfo·½·¨");
+		System.out.println("seletInfoï¿½ï¿½ï¿½ï¿½");
 		Connection conn=null;
 		PreparedStatement stat=null;
 		ResultSet rs=null;
@@ -33,7 +33,7 @@ public class InformationDao {
 			stat.setInt(1, userId);
 			rs=stat.executeQuery();
 			if(rs.next()){
-				//ÄÃµ½Êý¾Ý¿âÓÃ»§ÐÅÏ¢
+				//ï¿½Ãµï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
 				int id=rs.getInt("id");
 				int uId=rs.getInt("user_id");
 				String nickName=rs.getString("nickname");
@@ -43,9 +43,9 @@ public class InformationDao {
 				String  createTime=rs.getString("create_time");
 				String  lastUpdate=rs.getString("last_update_time");
 				String lastUpdater=rs.getString("last_update_person");
-				//´´½¨¸öÈËÐÅÏ¢¶ÔÏó
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 				 information=new Information();
-				//Îª¸öÈËÐÅÏ¢¶ÔÏó¸³Öµ
+				//Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Öµ
 				 information.setId(id);
 				information.setUserId(uId);
 				information.setNickName(nickName);
@@ -66,7 +66,7 @@ public class InformationDao {
 		return information;
 	}
 	
-	//¸üÐÂÓÃ»§ÐÅÏ¢
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
 	
 	public void  updateInformation(int userId,String nickname,
 			String gender,String birthday,String email) {
@@ -86,7 +86,7 @@ public class InformationDao {
 			stat.setString(4, email);
 			stat.setInt(5, userId);
 			stat.executeUpdate();
-			System.out.println("¸üÐÂÍê³É");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			
 		} catch (Exception e) {
 			e.printStackTrace();

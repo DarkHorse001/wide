@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 处理与商品有关的请求
+ * 澶勭悊涓庡晢鍝佹湁鍏崇殑璇锋眰
  * @author qin
  *
  */

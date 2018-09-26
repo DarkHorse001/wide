@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.gt.wide.base.annotation.RequestMapping;
-import com.gt.wide.entity.Directory;
+import com.gt.wide.bean.Directory;
 import com.gt.wide.mapper.UserDaoLin;
 
 public class indexService {

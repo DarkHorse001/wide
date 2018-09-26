@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.gt.wide.base.annotation.RequestMapping;
-import com.gt.wide.entity.Brand;
-import com.gt.wide.entity.Kind;
+import com.gt.wide.bean.Brand;
+import com.gt.wide.bean.Kind;
 import com.gt.wide.mapper.UserDaoLin;
 
 public class searchService {

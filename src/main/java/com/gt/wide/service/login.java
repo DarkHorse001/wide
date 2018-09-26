@@ -7,17 +7,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.gt.wide.base.annotation.RequestMapping;
-import com.gt.wide.entity.User;
+import com.gt.wide.bean.User;
 import com.gt.wide.mapper.UserDao;
 
 /**
- * µÇÂ¼ÒµÎñ£º´¦ÀíÓÃ»§µÇÂ¼ÒµÎñÂß¼­
- * @author ³Â¹ãÀ¤
+ * ï¿½ï¿½Â¼Òµï¿½ñ£º´ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Â¼Òµï¿½ï¿½ï¿½ß¼ï¿½
+ * @author ï¿½Â¹ï¿½ï¿½ï¿½
  *
  */
 public class login {
 	/**
-	 * µ½µÇÂ¼Ò³Ãæ
+	 * ï¿½ï¿½ï¿½ï¿½Â¼Ò³ï¿½ï¿½
 	 * @return
 	 */
 	@RequestMapping("/toLogin.do")
@@ -33,43 +33,43 @@ public class login {
 	@RequestMapping("/login.do")
 	public String  UserLogin(HttpServletRequest request,HttpSession session) throws SQLException {
 		System.out.println("");
-		// ²éÑ¯Êý¾Ý¿â£¬»ñÈ¡ËùÓÐÓÃ»§
+		// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ý¿â£¬ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 		UserDao dao=new UserDao();
 		List<User> users = dao.findAllUsers();
 		
-		//»ñÈ¡ÓÃ»§Ìá½»µÄÓÃ»§Ãû»òÊÖ»úºÅ
+		//ï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½á½»ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½
 		String name=request.getParameter("user");
-		//»ñÈ¡ÓÃ»§Ìá½»µÄÃÜÂë
+		//ï¿½ï¿½È¡ï¿½Ã»ï¿½ï¿½á½»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String pwd=request.getParameter("password");
-		//Ìá½»Êý¾Ý¶¼²»ÄÜÎª¿Õ
+		//ï¿½á½»ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
 		boolean haveEmpt="".equals(name)||"".equals(pwd);
 		
 		if(haveEmpt){
-			//Ìá½»Êý¾ÝÎª¿Õ£¬×ª·¢
-			request.setAttribute("login_fail_haveEmpt", "Ìá½»µÄÐÅÏ¢²»ÄÜÎª¿Õ");
+			//ï¿½á½»ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½×ªï¿½ï¿½
+			request.setAttribute("login_fail_haveEmpt", "ï¿½á½»ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½");
 			return "login/login";
 		}
 		
 		for(User u:users){
-			//²éÑ¯ÊÇ·ñÓÐÓÃ»§Ãû»òÊÖ»úºÅ
+			//ï¿½ï¿½Ñ¯ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½
 			String uname=u.getUserName();
 			String phone=u.getTelephone();
 			String password=u.getPwd();
 			int  id=u.getId();
-			//º¬ÓÃ»§Ãû»òÊÖ»úºÅÊ±ÔÙ±È¶ÔÃÜÂë
+			//ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ê±ï¿½Ù±È¶ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(uname.equals(name)||phone.equals(name)){
 				if(password.equals(pwd)){
-					//ÃÜÂëÆ¥Åä,µÇÂ¼³É¹¦
+					//ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½,ï¿½ï¿½Â¼ï¿½É¹ï¿½
 					session.setAttribute("id", id);
 					return "redirect:toHome.do";
 				}else{
-					//ÃÜÂë´íÎó£¬·µ»ØµÇÂ¼
-					request.setAttribute("login_fail_pwdError", "ÃÜÂë´íÎó");
+					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬·ï¿½ï¿½Øµï¿½Â¼
+					request.setAttribute("login_fail_pwdError", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 					return "login/login";
 				}
 			}
 		}
-		request.setAttribute("login_fail_noUser", "ÓÃ»§Ãû»òÊÖ»úºÅ´íÎó");
+		request.setAttribute("login_fail_noUser", "ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Å´ï¿½ï¿½ï¿½");
 		return "login/login";
 		
 	}

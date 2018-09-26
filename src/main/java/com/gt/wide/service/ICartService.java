@@ -1,7 +1,7 @@
 package com.gt.wide.service;
 
 /**
- * 处理与购物车有关的服务
+ * 澶勭悊璐墿杞︾殑鏈嶅姟
  * @author qin
  *
  */

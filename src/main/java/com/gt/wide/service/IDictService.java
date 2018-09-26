@@ -1,7 +1,7 @@
 package com.gt.wide.service;
 
 /**
- * 处理与省市县有关的服务
+ * 澶勭悊鐪佸競鍘跨殑鏈嶅姟
  * @author qin
  *
  */

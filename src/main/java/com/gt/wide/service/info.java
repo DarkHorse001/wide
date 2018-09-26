@@ -6,32 +6,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.gt.wide.base.annotation.RequestMapping;
-import com.gt.wide.entity.Information;
-import com.gt.wide.entity.User;
+import com.gt.wide.bean.Information;
+import com.gt.wide.bean.User;
 import com.gt.wide.mapper.InformationDao;
 import com.gt.wide.mapper.UserDao;
 /**
- * ¸öÈËÐÅÏ¢Àà£¬²éÑ¯ºÍÐÞ¸Ä¸öÈËÐÅÏ¢
- * @author ³Â¹ãÀ¤
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½à£¬ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Þ¸Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+ * @author ï¿½Â¹ï¿½ï¿½ï¿½
  *
  */
 public class info {
 
-	//µ½¸öÈËÐÅÏ¢Ò³Ãæ£¬¼´²éÑ¯
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ò³ï¿½æ£¬ï¿½ï¿½ï¿½ï¿½Ñ¯
 	@RequestMapping("/toInfo.do")
 	public String  toInformation(HttpSession session) {
-		System.out.println("toInfo·½·¨¡£¡£");
-		//»ñÈ¡session°ó¶¨µÄid
+		System.out.println("toInfoï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		//ï¿½ï¿½È¡sessionï¿½ó¶¨µï¿½id
 		Object uids=session.getAttribute("id");
 		Integer uid=(Integer) uids;
-		//Èç¹ûsession°ó¶¨Îªnull£¬ÔòÊÇÎ´µÇÂ¼£¬ÖØ¶¨Ïòµ½µÇÂ¼
+		//ï¿½ï¿½ï¿½sessionï¿½ï¿½Îªnullï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½òµ½µï¿½Â¼
 		if(uids==null){
 			return "redirect:toLogin.do";
 		}else{
-			//ÒÑµÇÂ¼£¬Ôò²éÑ¯Êý¾Ý¿âµÄÓÃ»§ÐÅÏ¢±í
+			//ï¿½Ñµï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
 			int userId=uid;
 			try {
-				//°ó¶¨ÓÃ»§±í
+				//ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
 				UserDao userDao=new UserDao();
 				User user=userDao.findUserByName(userId);
 				session.setAttribute("user", user);
@@ -39,17 +39,17 @@ public class info {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//°ó¶¨ÓÃ»§ÏêÇé±í
+			//ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			InformationDao infoDao=new InformationDao();
 			Information userInfo=infoDao.selectInformation(userId);
 			session.setAttribute("userInfo", userInfo);
-			System.out.println("ÒÑµÇÂ¼");
+			System.out.println("ï¿½Ñµï¿½Â¼");
 			return "person/information";
 		}
 	}
 	
 	/**
-	 * ¸üÐÂÓÃ»§Êý¾Ý
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param request
 	 * @param session
 	 * @return
@@ -74,7 +74,7 @@ public class info {
 		infoDao.updateInformation(userId, nickName, gender, birthday, email);
 		UserDao userDao=new UserDao();
 		userDao.updateUserName(userId, userName);
-		session.setAttribute("update", "ÐÞ¸Ä³É¹¦");
+		session.setAttribute("update", "ï¿½Þ¸Ä³É¹ï¿½");
 		return "redirect:toInfo.do";
 	}
 }
