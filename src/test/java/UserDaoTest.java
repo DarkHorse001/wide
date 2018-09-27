@@ -7,25 +7,32 @@ import com.gt.wide.mapper.UserMapper;
 
 
 public class UserDaoTest {
-	
+
 	@Test
 	public void testChangePassword() {
 		AbstractApplicationContext ac
-			= new ClassPathXmlApplicationContext(
+		= new ClassPathXmlApplicationContext(
 				"spring-dao.xml");
-		
+
 		UserMapper userMapper
-			= ac.getBean("userMapper", UserMapper.class);
-		
-//		User user = new User();
-//		user.setId(15);
-//		user.setPassword("5678");
-//		Integer result = userMapper.changePassword(user);
-//		System.out.println("result=" + result);
-		
+		= ac.getBean("userMapper", UserMapper.class);
+
+		User data = userMapper.findUserByUsername("admin");
+		System.out.println(data);
 		ac.close();
 	}
-	
-	
-	
+
+	public static void main(String[] args) {
+		AbstractApplicationContext ac
+		= new ClassPathXmlApplicationContext(
+				"spring-mapper.xml");
+
+		UserMapper userMapper
+		= ac.getBean("userMapper", UserMapper.class);
+
+		User data = userMapper.findUserByUsername("admin");
+		System.out.println(data);
+		ac.close();
+	}
+
 }

@@ -1,10 +1,12 @@
 package com.gt.wide.mapper;
 
+import com.gt.wide.bean.User;
+
 /**
- * �������û��йصĳ־ò����
+ * 
  * @author qin
  *
  */
 public interface UserMapper {
-
+	User findUserByUsername(String username);
 }

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans>
-	<bean class="com.gt.wide.service.indexService" />
-	<bean class="com.gt.wide.service.searchService" />
-	<bean class="com.gt.wide.service.reg"></bean>
-	<bean class="com.gt.wide.service.login"></bean>
-	<bean class="com.gt.wide.service.info"></bean>
-	<bean class="com.gt.wide.service.address"></bean>
-</beans>
